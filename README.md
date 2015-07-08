@@ -1,2 +1,0 @@
-# arraysTest
-111
