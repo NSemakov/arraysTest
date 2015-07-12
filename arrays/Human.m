@@ -10,7 +10,7 @@
 
 @implementation Human
 -(void) move {
-    
+    NSLog(@"I'm just human being");
 }
 
 

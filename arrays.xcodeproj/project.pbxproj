@@ -11,6 +11,7 @@
 		84A786D11B531D6B0010D114 /* Cyclist.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A786D01B531D6B0010D114 /* Cyclist.m */; };
 		84A786D41B531D790010D114 /* Swimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A786D31B531D790010D114 /* Swimmer.m */; };
 		84A786D71B531D890010D114 /* Runner.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A786D61B531D890010D114 /* Runner.m */; };
+		84A786DA1B532C060010D114 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A786D91B532C060010D114 /* Student.m */; };
 		84F9383F1B4D54B50053AA1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9383E1B4D54B50053AA1C /* main.m */; };
 		84F938421B4D54B50053AA1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F938411B4D54B50053AA1C /* AppDelegate.m */; };
 		84F938451B4D54B50053AA1C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F938441B4D54B50053AA1C /* ViewController.m */; };
@@ -39,6 +40,8 @@
 		84A786D31B531D790010D114 /* Swimmer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Swimmer.m; sourceTree = "<group>"; };
 		84A786D51B531D890010D114 /* Runner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Runner.h; sourceTree = "<group>"; };
 		84A786D61B531D890010D114 /* Runner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Runner.m; sourceTree = "<group>"; };
+		84A786D81B532C060010D114 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		84A786D91B532C060010D114 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		84F938391B4D54B50053AA1C /* arrays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = arrays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F9383D1B4D54B50053AA1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84F9383E1B4D54B50053AA1C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 			children = (
 				84F938401B4D54B50053AA1C /* AppDelegate.h */,
 				84F938411B4D54B50053AA1C /* AppDelegate.m */,
+				84A786D81B532C060010D114 /* Student.h */,
+				84A786D91B532C060010D114 /* Student.m */,
 				84A786CC1B5317AE0010D114 /* Human.h */,
 				84A786CD1B5317AE0010D114 /* Human.m */,
 				84A786CF1B531D6B0010D114 /* Cyclist.h */,
@@ -242,6 +247,7 @@
 				84A786D71B531D890010D114 /* Runner.m in Sources */,
 				84A786D11B531D6B0010D114 /* Cyclist.m in Sources */,
 				84F938451B4D54B50053AA1C /* ViewController.m in Sources */,
+				84A786DA1B532C060010D114 /* Student.m in Sources */,
 				84A786D41B531D790010D114 /* Swimmer.m in Sources */,
 				84F938421B4D54B50053AA1C /* AppDelegate.m in Sources */,
 				84F9383F1B4D54B50053AA1C /* main.m in Sources */,

@@ -24,13 +24,5 @@
 -(void) move{
     NSLog(@"Class:%@. %@ is cycling",self.class, self.class);
 }
-/*
--(Sex) isMan{
-    if (_sex==SexMan){
-        NSLog(@"man");
-    } else {
-        NSLog(@"woman");
-    }
-    return _sex;
-}*/
+
 @end
