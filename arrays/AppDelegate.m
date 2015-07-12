@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "Runner.h"
+#import "Cyclist.h"
+#import "Swimmer.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +20,26 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    NSLog(@"sdf");
+    
+    //Uchenik
+    Runner* runner1=[[Runner alloc]init];
+    Cyclist* cyclist1=[[Cyclist alloc]init];
+    Swimmer* swimmer1=[[Swimmer alloc] init];
+    NSArray* humans=[NSArray arrayWithObjects:runner1,cyclist1,swimmer1, nil];
+    for (Human* person in humans) {
+        NSString* personSex;
+            if (person.sex==SexMan){
+                personSex=@"man";
+            } else {
+               personSex=@"woman";
+            }
+        
+        
+        NSLog(@"name: %@, height: %.2f m, weight: %.2f kg, sex: %@",person.name, person.height, person.weight,personSex);
+        [person move];
+    }
+    //Student
+    
     
     
     return YES;
