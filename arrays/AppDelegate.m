@@ -11,6 +11,8 @@
 #import "Cyclist.h"
 #import "Swimmer.h"
 #import "Student.h"
+#import "Cat.h"
+#import "Dog.h"
 @interface AppDelegate ()
 
 @end
@@ -50,31 +52,71 @@
     //--------------
     //end of Student
     
-    NSArray* arrayAnimals=@[@"st1",@"st2",@"st3",@"st4",@"st5",@"st6"];
-    NSArray* arrayPeople=@[@"st7",@"st8",@"st9",@"st10"];
-    //NSUInteger x=MIN([array1 count], [array2 count]);
-    if ([arrayPeople count]>[arrayAnimals count]) {
-        [self outputOfArrays:arrayPeople arrayAnimals:arrayAnimals minimumCount:[arrayAnimals count] longerArray:arrayPeople];
-    } else {
-        [self outputOfArrays:arrayPeople arrayAnimals:arrayAnimals minimumCount:[arrayPeople count] longerArray:arrayAnimals];
+    
+    //Master
+    Cat* cat1=[Cat new];
+    Dog* dog1=[Dog new];
+    NSArray* humansAndAnimals=@[runner1,cyclist1,swimmer1,student1,cat1,dog1];
+    for (id obj in humansAndAnimals) {
+        NSLog(@"Type:%@",[obj superclass]);
+        if ([[obj class] isSubclassOfClass:[Human class]]) {
+            Human* human=obj;
+            NSLog(@"name: %@, height: %.2f m, weight: %.2f kg, sex: %@",human.name,human.height,human.weight,[self sexDefine:human.sex] );
+            if ([human isKindOfClass:[Student class]]) {
+                Student* goodStudent=(Student*)human;
+                NSLog(@"city: %@, university: %@",goodStudent.city,goodStudent.university);
+            }
+        } else if ([[obj class] isSubclassOfClass:[Animal class]]){
+            Animal* animal=obj;
+            NSLog(@"name: %@, weight: %.2f kg",animal.nickname,animal.weight);
+        }
+        [obj move];
     }
+    //--------------
+    //end of Master
+    
+    //Zvezda
+    //NSArray* arrayAnimals=@[@"st1",@"st2",@"st3",@"st4",@"st5",@"st6"];
+    //NSArray* arrayPeople=@[@"st7",@"st8",@"st9",@"st10"];
+
+    NSArray* arrayAnimals=@[cat1,dog1];
+    NSArray* arrayPeople=[NSArray arrayWithArray:humans2];
+    
+    NSInteger peopleCount=[arrayPeople count];
+    NSInteger animalCount=[arrayAnimals count];
+    /* measuring time snippet
+    NSDate *methodStart = [NSDate date];
+     //do something here
+    NSDate *methodFinish = [NSDate date];
+    NSTimeInterval executionTime = [methodFinish timeIntervalSinceDate:methodStart];
+    */
+    NSDate *methodStart2 = [NSDate date];
+    for (NSInteger i=0; i<MAX(peopleCount, animalCount); i++) {
+        if (i<peopleCount) {
+            NSLog(@"man: %@",[arrayPeople objectAtIndex:i]);
+        }
+        if (i<animalCount) {
+            NSLog(@"animal: %@",[arrayAnimals objectAtIndex:i]);
+        }
+    }
+    NSDate *methodFinish2 = [NSDate date];
+    NSTimeInterval executionTime2= [methodFinish2 timeIntervalSinceDate:methodStart2];
+  
+    NSLog(@"executionTime with if = %f", executionTime2);
+    //--------------
+    //end of Zvezda
+    
+    
+    
     return YES;
 }
--(void) outputOfArrays: (NSArray*) arrayPeople arrayAnimals:(NSArray*)arrayAnimals minimumCount:(NSInteger)minimumCount longerArray:(NSArray*) longerArray{
-    for (NSInteger i=0; i<minimumCount; i++) {
-        NSLog(@"shorter massiv:%@ longer massiv:%@",[arrayPeople objectAtIndex:i],[arrayAnimals objectAtIndex:i] );
-    }
-    for (NSInteger i=minimumCount; i<[longerArray count]; i++) {
-         NSLog(@"longer massiv:%@",[longerArray objectAtIndex:i] );
-    }
-}
+
 -(NSString*) sexDefine:(Sex) sex{
     if (sex==SexMan){
         return @"man";
     } else {
         return @"woman";
     }
-    
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
