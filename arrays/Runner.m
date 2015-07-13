@@ -13,7 +13,7 @@
 {
     self = [super init];
     if (self) {
-        self.name=@"Runner Ivan";
+        self.name=@"Ivan Runner";
         self.height=1.85f;
         self.weight=90.f;
         self.sex=SexMan;

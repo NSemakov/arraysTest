@@ -13,7 +13,7 @@
 {
     self = [super init];
     if (self) {
-        self.nickname=@"Dog Sharik";
+        self.nickname=@"Sharik Dog";
         self.weight=7.8f;
     }
     return self;
