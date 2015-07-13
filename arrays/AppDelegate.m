@@ -41,7 +41,7 @@
     NSArray* humans2=@[runner1,cyclist1,swimmer1,student1];
     for (NSInteger i=[humans2 count]-1; i>=0; i--) {
         Human* personInner=[humans2 objectAtIndex:i];
-        NSLog(@"name: %@, height: %.2f m, weight: %.2f kg, sex: %@",personInner.name,personInner.height,personInner.weight,[self sexDefine:personInner.sex] );
+        NSLog(@"%@ sex: %@",personInner,[self sexDefine:personInner.sex] );
         if ([personInner isKindOfClass:[Student class]]) {
             Student* goodStudent=(Student*)personInner;
             NSLog(@"city: %@, university: %@",goodStudent.city,goodStudent.university);
@@ -56,19 +56,19 @@
     //Master
     Cat* cat1=[Cat new];
     Dog* dog1=[Dog new];
-    NSArray* humansAndAnimals=@[runner1,cyclist1,swimmer1,student1,cat1,dog1];
+    NSArray* humansAndAnimals=@[runner1,cyclist1,dog1,cat1,swimmer1,student1];
     for (id obj in humansAndAnimals) {
         NSLog(@"Type:%@",[obj superclass]);
         if ([[obj class] isSubclassOfClass:[Human class]]) {
             Human* human=obj;
-            NSLog(@"name: %@, height: %.2f m, weight: %.2f kg, sex: %@",human.name,human.height,human.weight,[self sexDefine:human.sex] );
+            NSLog(@"name: %@, sex: %@",human,[self sexDefine:human.sex] );
             if ([human isKindOfClass:[Student class]]) {
                 Student* goodStudent=(Student*)human;
                 NSLog(@"city: %@, university: %@",goodStudent.city,goodStudent.university);
             }
         } else if ([[obj class] isSubclassOfClass:[Animal class]]){
             Animal* animal=obj;
-            NSLog(@"name: %@, weight: %.2f kg",animal.nickname,animal.weight);
+            NSLog(@"%@",animal);
         }
         [obj move];
     }
@@ -76,8 +76,6 @@
     //end of Master
     
     //Zvezda
-    //NSArray* arrayAnimals=@[@"st1",@"st2",@"st3",@"st4",@"st5",@"st6"];
-    //NSArray* arrayPeople=@[@"st7",@"st8",@"st9",@"st10"];
 
     NSArray* arrayAnimals=@[cat1,dog1];
     NSArray* arrayPeople=[NSArray arrayWithArray:humans2];
@@ -102,12 +100,31 @@
     NSDate *methodFinish2 = [NSDate date];
     NSTimeInterval executionTime2= [methodFinish2 timeIntervalSinceDate:methodStart2];
   
-    NSLog(@"executionTime with if = %f", executionTime2);
+    NSLog(@"executionTime = %f", executionTime2);
     //--------------
     //end of Zvezda
     
-    
-    
+    //Superman
+    NSArray* sortedArray=[humansAndAnimals sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        if ([[obj1 class] isSubclassOfClass:[Human class]] && [[obj2 class] isSubclassOfClass:[Animal class]]) {
+            return NSOrderedAscending;
+        } else if ([[obj1 class] isSubclassOfClass:[Animal class]] && [[obj2 class] isSubclassOfClass:[Human class]]) {
+            return NSOrderedDescending;
+        } else {
+            if ([obj1 isKindOfClass:[Human class]]) {
+                Human* obj1Human=(Human*) obj1;
+                Human* obj2Human=(Human*) obj2;
+                return [obj1Human.name compare:obj2Human.name];
+            } else {
+                Animal* obj1Animal=(Animal*) obj1;
+                Animal* obj2Animal=(Animal*) obj2;
+                return [obj1Animal.nickname compare:obj2Animal.nickname];
+            };
+        }
+    }];
+    NSLog(@"%@", sortedArray);
+    //--------------
+    //end of Superman
     return YES;
 }
 

@@ -12,4 +12,8 @@
 -(void) move {
     NSLog(@"I'm just animal");
 }
+-(NSString*) description {
+    NSString* formatString=[NSString stringWithFormat:@"nickname:%@, weight: %.2f",self.nickname,self.weight];
+    return formatString;
+}
 @end
