@@ -46,11 +46,27 @@
         }
         [personInner move];
     }
+    
     //--------------
     //end of Student
     
-    
+    NSArray* arrayAnimals=@[@"st1",@"st2",@"st3",@"st4",@"st5",@"st6"];
+    NSArray* arrayPeople=@[@"st7",@"st8",@"st9",@"st10"];
+    //NSUInteger x=MIN([array1 count], [array2 count]);
+    if ([arrayPeople count]>[arrayAnimals count]) {
+        [self outputOfArrays:arrayPeople arrayAnimals:arrayAnimals minimumCount:[arrayAnimals count] longerArray:arrayPeople];
+    } else {
+        [self outputOfArrays:arrayPeople arrayAnimals:arrayAnimals minimumCount:[arrayPeople count] longerArray:arrayAnimals];
+    }
     return YES;
+}
+-(void) outputOfArrays: (NSArray*) arrayPeople arrayAnimals:(NSArray*)arrayAnimals minimumCount:(NSInteger)minimumCount longerArray:(NSArray*) longerArray{
+    for (NSInteger i=0; i<minimumCount; i++) {
+        NSLog(@"shorter massiv:%@ longer massiv:%@",[arrayPeople objectAtIndex:i],[arrayAnimals objectAtIndex:i] );
+    }
+    for (NSInteger i=minimumCount; i<[longerArray count]; i++) {
+         NSLog(@"longer massiv:%@",[longerArray objectAtIndex:i] );
+    }
 }
 -(NSString*) sexDefine:(Sex) sex{
     if (sex==SexMan){
